@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Descubra Seu Mundo</title>
+    
+    <link rel="icon" href="https://edube.org/uploads/media/default/0001/04/web-favicon.png" type="image/png">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #75df6c 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        p {
+            color: #e8e8ff;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            text-align: center;
+            max-width: 600px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        button {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border: none;
+            padding: 14px 40px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+            transition: all 0.3s ease;
+            font-weight: 600;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(245, 87, 108, 0.6);
+        }
+
+        button:active {
+            transform: translateY(-1px);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        area {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        area:hover {
+            opacity: 0.8;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Descubra Seu Mundo &#x1F30D</h1> 
+    <p>Clique em um continente no mapa para aprender sobre suas características geográficas famosas e seus pontos turísticos.</p>
+    
+    <button id="discoverLocation">📍 Descobrir Minha Localização</button>
+
+    <img src="https://edube.org/uploads/media/default/0001/04/continents.jpg" usemap="#image-map" alt="World Map">
+    <map name="image-map">
+        
+        <area target="" alt="North America" title="North America" id="north-america" coords="386,283,41,17" shape="rect" href="javascript:void(0);">
+        <area target="" alt="South America" title="South America" id="south-america" coords="209,501,358,288" shape="rect" href="javascript:void(0);">
+        <area target="" alt="Europe" title="Europe" id="europe" coords="391,68,505,217" shape="rect" href="javascript:void(0);">
+        <area target="" alt="Africa" title="Africa" id="africa" coords="533,217,387,448" shape="rect" href="javascript:void(0);">
+        <area target="" alt="Asia" title="Asia" id="asia" coords="893,153,506,1" shape="rect" href="javascript:void(0);">
+        <area target="" alt="Australia and Oceania" title="Australia and Oceania" id="australia-and-oceania" coords="679,353,872,480" shape="rect" href="javascript:void(0);">
+    </map>
+
+</body>
+</html>
+
+
+<!-- JavaScript code provided by your teammate -->
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const continentInfo = {
+    'north-america': {
+      continent: 'América do Norte',
+      river: 'Rio Mississippi',
+      mountain: 'Denali',
+      landmarks: 'Grand Canyon, Estátua da Liberdade, Cataratas do Niágara'
+    },
+    'south-america': {
+      continent: 'América do Sul',
+      river: 'Rio Amazonas',
+      mountain: 'Aconcágua',
+      landmarks: 'Machu Picchu, Ilhas Galápagos'
+    },
+    'europe': {
+      continent: 'Europa',
+      river: 'Rio Danúbio',
+      mountain: 'Monte Branco',
+      landmarks: 'Torre Eiffel, Coliseu, Acrópole de Atenas'
+    },
+    'africa': {
+      continent: 'África',
+      river: 'Rio Nilo',
+      mountain: 'Monte Quilimanjaro',
+      landmarks: 'Grande Esfinge, Montanha da Mesa'
+    },
+    'asia': {
+      continent: 'Ásia',
+      river: 'Rio Yangtzé',
+      mountain: 'Monte Everest',
+      landmarks: 'Grande Muralha da China, Petra'
+    },
+    'australia-and-oceania': {
+      continent: 'Austrália e Oceania',
+      river: 'Rio Murray',
+      mountain: 'Monte Kosciuszko',
+      landmarks: 'Casa da Ópera de Sydney, Grande Barreira de Coral, Uluru'
+    }
+  };
+
+  function displayContinentInfo(continentId) {
+    const info = continentInfo[continentId];
+    if (info) {
+      alert(`🌍 Continente: ${info.continent}\n🌊 Rio: ${info.river}\n⛰️ Montanha: ${info.mountain}\n🏛️ Pontos Turísticos: ${info.landmarks}`);
+    } else {
+      alert('Informação não disponível');
+    }
+  }
+
+  document.querySelectorAll('area').forEach(area => {
+    area.addEventListener('click', function() {
+      const continentId = this.id;
+      displayContinentInfo(continentId);
+    });
+  });
+
+  const discoverLocationButton = document.getElementById('discoverLocation');
+  
+  discoverLocationButton.addEventListener('click', () => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        const continentId = determineContinentByGeo(latitude, longitude);
+        displayContinentInfo(continentId);
+      }, (error) => {
+        alert("Erro ao obter localização: " + error.message);
+      });
+    } else {
+      alert("Geolocalização não é suportada pelo seu navegador.");
+    }
+  });
+
+  function determineContinentByGeo(latitude, longitude) {
+    if (latitude > 35 && longitude > -10 && longitude < 40) {
+      return 'europe';
+    } else if (latitude < 0 && longitude > -80 && longitude < -34) {
+      return 'south-america';
+    } else if (latitude > 0 && longitude > -130 && longitude < -70) {
+      return 'north-america';
+    } else if (latitude > 5 && latitude < 60 && longitude > 40 && longitude < 180) {
+      return 'asia';
+    } else if (latitude > -35 && latitude < 35 && longitude > 10 && longitude < 50) {
+      return 'africa';
+    } else if (latitude < -10 && longitude > 110 && longitude < 180) {
+      return 'australia-and-oceania';
+    }
+    alert("Não foi possível determinar o continente baseado em sua localização.");
+    return null; // Fallback for locations not covered
+  }
+});
+
+</script>
